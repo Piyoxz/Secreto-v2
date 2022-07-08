@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secreto V2">
+    <meta name="author" content="Alvio Adji Januar">
+    <title>Secreto V2</title>
+    <script src="js/query.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/all.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/slick.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/animate.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/postingan.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <style>
+     span {
+        border: 5rem;
+        font-size: 12px;
+        font-weight: bold;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+     }
+     span::before {
+        background: red;
+     }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container" id="post1" style="margin-top: 50px;margin-left: 450px; display: none;">
+        <div class="row text-center">
+            <div class="col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="font-size: 20px;">Secret Message V2</h3>
+                    </div>
+                    <div class="panel-body" id="panel-body">
+                        <form id="myform" method="post">
+                           <div class="form-group">
+                               <label for="message">SEND SECRET MESSAGE TO <%= data.username %></label>
+                               <textarea class="form-control" name="message" id="message" rows="3" placeholder="Write message in here"></textarea>
+                           </div>
+                           <br>
+                           <button type="submit" class="btn btn-primary" style="top: -20px;">Submit</button>
+                       </form>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="post2" style="margin-top: 50px;margin-left: 450px; display: none;">
+        <div class="row text-center">
+            <div class="col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="font-size: 20px;">Secret Message V2</h3>
+                    </div>
+                    <div class="panel-body" id="panel-body2">
+                        <form id="myform2" method="post">
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                            </div>
+                           <div class="form-group">
+                               <label for="gambar">SEND SECRET IMAGE TO <%= data.username %></label>
+                                <input type="file" name="gambar" id="gambar" onchange="loadFile(event)" required>
+                            </div>
+                            <div class="" style="margin-left: 20px;">
+                                <img src="" alt="" id="output" style="width: 200px;height: 200px; display: none;">
+                            </div>
+                           <br>
+                           <button type="submit" class="btn btn-primary" style="top: -20px;">Submit</button>
+                       </form>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="post3" style="margin-top: 50px;margin-left: 450px;display: none;">
+        <div class="row text-center">
+            <div class="col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="font-size: 20px;">Secret Message V2</h3>
+                    </div>
+                    <div class="panel-body" id="panel-body3">
+                        <form id="myform3" method="post">
+                           <div class="form-group">
+                               <label for="audio">SEND SECRET VOICE TO <%= data.username %></label>
+                               <label for="audio">Audio Bisa Di Ubah Suaranya Sesuka Kalian</label>
+                               <button class="btn btn-success" id="record">
+                               Record Audio
+                               </button>
+                               <button class="btn btn-info" id="stop">
+                               Stop Record
+                               </button>
+                               <span id="timer">00:00</span>
+                               <div id="audio"></div>
+                               <div id="change" style="display: none;">
+                                <select option name="audio" id="audio">
+                                    <option value="">Voice Changer Maintance</option>
+                                    <option value="">Donasi Dulu</option>
+                                    <option value="">Donasi Dulu</option>
+                                    <option value="">Donasi Dulu</option>
+                                </select>
+                               </div>
+                            </div>
+                           <button class="btn btn-danger" id="gantisuara" style="/* top: -20px; */top: 30px;right: -40px;display: none;" onclick="window.location.reload();">Change</button>
+                           <button type="submit" class="btn btn-primary" style="top: -20px;" id="submit">Submit</button>
+                       </form>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container" id="menu" style="margin-top: 50px;margin-left: 450px;">
+      <div class="row text-center">
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="font-size: 20px;">Secret Message V2</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <span class="btn btn-success" id="text">
+                            Send Message Text
+                        </span>
+                        <br>
+                        <br>
+                        <span class="btn btn-info" id="image">
+                            Send Message Image
+                        </span>
+                        <br>
+                        <br>
+                        <span class="btn btn-danger" id="audioe">
+                            Send Message Audio
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="profile" style="display: none;">
+        <%= data.link %>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/copyToClipboard.js"></script>
+    <script>
+        var loadFile = function(event) {
+          var reader = new FileReader();
+          reader.onload = function(){
+            var output = document.getElementById('output');
+            output.style.display = "block";
+            output.src = reader.result;
+          };
+          reader.readAsDataURL(event.target.files[0]);
+        };
+    </script>
+    <script type="text/javascript">
+        var text = document.getElementById('text');
+        var image = document.getElementById('image');
+        var t0t = document.getElementById('audioe');
+
+        text.onclick = () => {
+            document.getElementById('post1').style.display = "block";
+            document.getElementById('post2').style.display = "none";
+            document.getElementById('post3').style.display = "none";
+            document.getElementById('menu').style.display = "none";
+            document.getElementById('profile').style.display = "none";
+        }
+        image.onclick = () => {
+            document.getElementById('post1').style.display = "none";
+            document.getElementById('post2').style.display = "block";
+            document.getElementById('post3').style.display = "none";
+            document.getElementById('menu').style.display = "none";
+            document.getElementById('profile').style.display = "none";
+        }
+        t0t.onclick = () => {
+            document.getElementById('post1').style.display = "none";
+            document.getElementById('post2').style.display = "none";
+            document.getElementById('post3').style.display = "block";
+            document.getElementById('menu').style.display = "none";
+            document.getElementById('profile').style.display = "none";
+        }
+    </script>
+    <script type="text/javascript">
+    var record = document.getElementById('record');
+    var stop = document.getElementById('stop');
+    var audiot = document.getElementById('audio');
+    var change = document.getElementById('change');
+    const ret = document.getElementById("timer");
+    const ganti = document.getElementById("gantisuara");
+    const kirim = document.getElementById('submit')
+    let counter = 0;
+    let interval;
+    var chunck = []
+    function stop2() {
+    clearInterval(interval);
+    record.disabled = false;
+    }
+      function convertSec(cnt) {
+  let sec = cnt % 60;
+  let min = Math.floor(cnt / 60);
+  if (sec < 10) {
+    if (min < 10) {
+      return "0" + min + ":0" + sec;
+    } else {
+      return min + ":0" + sec;
+    }
+  } else if ((min < 10) && (sec >= 10)) {
+    return "0" + min + ":" + sec;
+  } else {
+    return min + ":" + sec;
+  }
+}
+
+      function start() {
+       record.disabled = true
+  interval = setInterval(function() {
+    ret.innerHTML = convertSec(counter++);
+  }, 950);
+}
+    record.onclick = () => {
+        start()
+        record.style.background = "red";
+        navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+            MediaRecorder = new MediaRecorder(stream)
+            MediaRecorder.start()
+            MediaRecorder.addEventListener('dataavailable', e => {
+                chunck.push(e.data)
+            })
+            MediaRecorder.addEventListener('stop', e => {
+                var blob = new Blob(chunck, { type : chunck[0].type })
+                globalThis.lagu = blob
+                var audioURL = URL.createObjectURL(blob)
+                audio = new Audio(audioURL)
+                audio.setAttribute('controls', true)
+                audiot.appendChild(audio)
+            })
+        })
+    }
+    stop.onclick = () => {
+        MediaRecorder.stop()
+        stop2()
+        record.remove()
+        stop.remove()
+        kirim.style.marginRight = '-150px'
+        ganti.style.display = 'block'
+        change.style.display = 'block'
+    }
+    </script>
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="js/send.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
